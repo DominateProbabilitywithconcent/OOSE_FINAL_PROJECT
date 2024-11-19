@@ -269,8 +269,8 @@ public class DatabaseController extends HttpServlet
 	                    double price = Double.parseDouble(priceStr);
 	                    Product existingProduct = ProductDB.selectProduct(productCode);
 	                    if (existingProduct == null) {
-	                    	Description info = DescriptionDB.selectDescription(fruitName);
-	                        Product newProduct = new Product(productCode,info, price);
+	                    	Description infor = DescriptionDB.selectDescription(fruitName);
+	                        Product newProduct = new Product(productCode, infor, price);
 	                        ProductDB.insert(newProduct);
 	                        message = "Successfully inserted the new product.";
 	                    } 
@@ -318,16 +318,16 @@ public class DatabaseController extends HttpServlet
 	        List<User> users = UserDB.selectUsers();
 	        List<Product> products = ProductDB.selectProducts();
 	        List<Description> descriptions = DescriptionDB.selectDescriptions();
-            List<LineItem> lineItems = LineItemDB.selectLineItems();
-            List<Cart> carts = CartDB.selectCarts();
-            List<Invoice> invoices = InvoiceDB.selectInvoices();
+            	List<LineItem> lineItems = LineItemDB.selectLineItems();
+            	List<Cart> carts = CartDB.selectCarts();
+            	List<Invoice> invoices = InvoiceDB.selectInvoices();
             
 	        request.setAttribute("users", users);
 	        request.setAttribute("products", products);
-            request.setAttribute("descriptions", descriptions);
-            request.setAttribute("lineItems", lineItems);
-            request.setAttribute("carts", carts);
-            request.setAttribute("invoices", invoices);
+            	request.setAttribute("descriptions", descriptions);
+            	request.setAttribute("lineItems", lineItems);
+            	request.setAttribute("carts", carts);
+            	request.setAttribute("invoices", invoices);
             
 	        sc.getRequestDispatcher(url).forward(request, response);
         }
