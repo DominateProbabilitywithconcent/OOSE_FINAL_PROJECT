@@ -36,6 +36,10 @@ public class Description implements Serializable
 		this.type = type;
 		this.releaseDate = releaseDate;
 	}
+	public Description(String fruitName)
+	{
+		this.fruitName = fruitName;
+	}
 
 	public long getDescId() 
 	{
