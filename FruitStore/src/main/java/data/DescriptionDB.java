@@ -85,7 +85,9 @@ public class DescriptionDB
 		q.setParameter("fruitName", fruitName);
 		try 
 		{
+			
 			Description description = q.getSingleResult();
+			description = new Description(fruitName);
 			return description;
 		} 
 		catch (NoResultException e) 
